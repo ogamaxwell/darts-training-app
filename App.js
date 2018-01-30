@@ -33,13 +33,14 @@ class GameScreen extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
+        <CheckoutNumber/>
         <Text>Game</Text>
         <Button
             title="Submit"
             onPress ={() => navigate('PostGame')}
         />
 
-        <CheckoutNumber/>
+
       </View>
     );
   }
@@ -87,5 +88,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+      backgroundColor: '#000000',
   },
 });
