@@ -19,7 +19,7 @@ class CheckoutNumber extends React.Component {
     async fetchPostCode() {
         try {
             //fetches data from the url where server is being hosted
-            let response = await fetch("http://10.161.5.138:3000/out-data/game/ran-num");
+            let response = await fetch("http://192.168.1.17:3000/out-data/game/ran-num");
 
             //turns data into a json object
             let responseJson = await response.json();

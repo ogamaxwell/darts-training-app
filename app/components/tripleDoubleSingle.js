@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import {StyleSheet, View, Text, TouchableOpacity, Image} from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity, ImageBackground} from 'react-native';
 
 class TripleDoubleSingle extends React.Component{
     constructor(props){
@@ -16,23 +16,26 @@ class TripleDoubleSingle extends React.Component{
     render(){
         return(
             <View style={styles.flexbox}>
-                <TouchableOpacity style = {styles.image}>
-                    <Image reizeMode='contain' source={require("../assets/btn_segment_off.png")} />
-                    <View style={styles.textView}>
-                        <Text style={styles.textStyle}>Triple</Text>
-                    </View>
+                <TouchableOpacity>
+                    <ImageBackground style={styles.image} reizeMode='contain' source={require("../assets/btn_segment_off.png")} >
+                        <View style={styles.textView}>
+                            <Text style={styles.textStyle}>Triple</Text>
+                        </View>
+                    </ImageBackground>
                 </TouchableOpacity>
-                <TouchableOpacity style = {styles.image}>
-                    <Image reizeMode='contain' source={require("../assets/btn_segment_off.png")} />
-                    <View style={styles.textView}>
-                        <Text style={styles.textStyle}>Double</Text>
-                    </View>
+                <TouchableOpacity>
+                    <ImageBackground style = {styles.image} reizeMode='contain' source={require("../assets/btn_segment_off.png")} >
+                        <View style={styles.textView}>
+                            <Text style={styles.textStyle}>Double</Text>
+                        </View>
+                    </ImageBackground>
                 </TouchableOpacity>
-                <TouchableOpacity style = {styles.image}>
-                    <Image reizeMode='contain' source={require("../assets/btn_segment_off.png")} />
-                    <View style={styles.textView}>
-                        <Text style={styles.textStyle}>Single</Text>
-                    </View>
+                <TouchableOpacity>
+                    <ImageBackground style = {styles.image} reizeMode='contain' source={require("../assets/btn_segment_off.png")}>
+                        <View style={styles.textView}>
+                            <Text style={styles.textStyle}>Single</Text>
+                        </View>
+                    </ImageBackground>
                 </TouchableOpacity>
             </View>
         )
@@ -75,7 +78,7 @@ const styles = StyleSheet.create({
     },
     image:{
         flexGrow:1,
-        width: 125,
+        width: 140,
         height:50,
         alignItems: 'center',
         justifyContent: 'center',

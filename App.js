@@ -4,6 +4,7 @@ import {StackNavigator} from "react-navigation";
 import CheckoutNumber from './app/components/checkoutNumber';
 import CurrentCheckout from './app/components/currentCheckout';
 import TripleDoubleSingle from './app/components/tripleDoubleSingle';
+import NumberSelection from './app/components/numberSelection';
 
 class PreGameScreen extends React.Component {
 
@@ -37,14 +38,10 @@ class GameScreen extends React.Component {
       <View style={styles.container}>
         <CheckoutNumber/>
         <CurrentCheckout/>
-        <TripleDoubleSingle/>
-        <Text>Game</Text>
-        <Button
-            title="Submit"
-            onPress ={() => navigate('PostGame')}
-        />
-
-
+        <View>
+          <TripleDoubleSingle/>
+          <NumberSelection/>
+        </View>
       </View>
     );
   }
