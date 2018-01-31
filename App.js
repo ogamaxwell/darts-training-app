@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, Button, View, Text } from 'react-native';
 import {StackNavigator} from "react-navigation";
 import CheckoutNumber from './app/components/checkoutNumber';
+import CurrentCheckout from './app/components/currentCheckout';
+import TripleDoubleSingle from './app/components/tripleDoubleSingle';
 
 class PreGameScreen extends React.Component {
 
@@ -34,6 +36,8 @@ class GameScreen extends React.Component {
     return (
       <View style={styles.container}>
         <CheckoutNumber/>
+        <CurrentCheckout/>
+        <TripleDoubleSingle/>
         <Text>Game</Text>
         <Button
             title="Submit"
@@ -69,8 +73,8 @@ class PostGameScreen extends React.Component {
 }
 
  const StackApp = StackNavigator({
-    PreGame: {screen: PreGameScreen},
      Game: {screen: GameScreen},
+    PreGame: {screen: PreGameScreen},
      PostGame: {screen: PostGameScreen},
 });
 

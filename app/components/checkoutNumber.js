@@ -3,7 +3,6 @@
  */
 
 import React from 'react';
-
 import { StyleSheet, View, Text } from 'react-native';
 
 class CheckoutNumber extends React.Component {
@@ -20,7 +19,7 @@ class CheckoutNumber extends React.Component {
     async fetchPostCode() {
         try {
             //fetches data from the url where server is being hosted
-            let response = await fetch("http://192.168.1.17:3000/out-data/game/ran-num");
+            let response = await fetch("http://10.161.5.138:3000/out-data/game/ran-num");
 
             //turns data into a json object
             let responseJson = await response.json();
@@ -46,7 +45,7 @@ class CheckoutNumber extends React.Component {
     render(){
         return (
           <View>
-              <Text style={styles.textsize}>{this.state.checkoutNum}</Text>
+              <Text style={styles.textsize}>CHECKOUT {this.state.checkoutNum}</Text>
           </View>
         );
     }
@@ -54,7 +53,7 @@ class CheckoutNumber extends React.Component {
 
 const styles = StyleSheet.create({
     textsize: {
-        fontSize: 150,
+        fontSize: 30,
         color: 'white',
     }
 });
