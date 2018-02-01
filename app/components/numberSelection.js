@@ -34,9 +34,9 @@ export default class NumberSelection extends React.Component {
             <View>
                 <View style={styles.flexRow}>
                     {this.index1.map(i => {
-                        return <TouchableOpacity>
-                            <ImageBackground style={styles.imageBox} source={require("../assets/btn_number_off.png")}>
-                                <View style={styles.textView}>
+                        return <TouchableOpacity key={i}>
+                            <ImageBackground key={i} style={styles.imageBox} source={require("../assets/btn_number_off.png")}>
+                                <View key={i} style={styles.textView}>
                                     <Text style={styles.textStyle} key={i}>{i}</Text>
                                 </View>
                             </ImageBackground>
@@ -45,9 +45,9 @@ export default class NumberSelection extends React.Component {
                 </View>
                 <View style={styles.flexRow}>
                     {this.index2.map(i => {
-                        return <TouchableOpacity>
-                            <ImageBackground style={styles.imageBox} source={require("../assets/btn_number_off.png")}>
-                                <View style={styles.textView}>
+                        return <TouchableOpacity key={i}>
+                            <ImageBackground key={i} style={styles.imageBox} source={require("../assets/btn_number_off.png")}>
+                                <View key={i} style={styles.textView}>
                                     <Text style={styles.textStyle} key={i}>{i}</Text>
                                 </View>
                             </ImageBackground>
@@ -56,10 +56,10 @@ export default class NumberSelection extends React.Component {
                 </View>
                 <View style={styles.flexRow}>
                     {this.index3.map(i => {
-                        return <TouchableOpacity>
-                            <ImageBackground style={styles.imageBox} source={require("../assets/btn_number_off.png")}>
-                                <View style={styles.textView}>
-                                    <Text style={styles.textStyle} key={i}>{i}</Text>
+                        return <TouchableOpacity key={i}>
+                            <ImageBackground key={i} style={styles.imageBox} source={require("../assets/btn_number_off.png")}>
+                                <View key={i} style={styles.textView}>
+                                    <Text  style={styles.textStyle} key={i}>{i}</Text>
                                 </View>
                             </ImageBackground>
                         </TouchableOpacity>
@@ -67,9 +67,9 @@ export default class NumberSelection extends React.Component {
                 </View>
                 <View style={styles.flexRow}>
                     {this.index4.map(i => {
-                        return <TouchableOpacity>
-                            <ImageBackground style={styles.imageBox} source={require("../assets/btn_number_off.png")}>
-                                <View>
+                        return <TouchableOpacity key={i}>
+                            <ImageBackground key={i} style={styles.imageBox} source={require("../assets/btn_number_off.png")}>
+                                <View key={i}>
                                     <Text style={styles.textStyle} key={i}>{i}</Text>
                                 </View>
                             </ImageBackground>

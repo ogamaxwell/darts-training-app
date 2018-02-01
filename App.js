@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, Button, View, Text } from 'react-native';
+import { StyleSheet, Button, View, Text, ImageBackground } from 'react-native';
 import {StackNavigator} from "react-navigation";
 import CheckoutNumber from './app/components/checkoutNumber';
 import CurrentCheckout from './app/components/currentCheckout';
 import TripleDoubleSingle from './app/components/tripleDoubleSingle';
 import NumberSelection from './app/components/numberSelection';
+import SelectionsMade from './app/components/selectionsMade';
 
 class PreGameScreen extends React.Component {
 
@@ -36,8 +37,13 @@ class GameScreen extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <CheckoutNumber/>
-        <CurrentCheckout/>
+        <View style={styles.container}>
+          <ImageBackground style={{width: 300, height: 300, alignItems: 'center', justifyContent: 'center'}} source={require("./app/assets/bg_board.png")}>
+            <CheckoutNumber/>
+            <CurrentCheckout/>
+            <SelectionsMade/>
+          </ImageBackground>
+        </View>
         <View>
           <TripleDoubleSingle/>
           <NumberSelection/>
