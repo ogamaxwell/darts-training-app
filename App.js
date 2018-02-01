@@ -1,7 +1,13 @@
 import React from 'react';
 import { StyleSheet, Button, View, Text, ImageBackground } from 'react-native';
 import {StackNavigator} from "react-navigation";
+//bring in redux
+import {Provider} from 'react-redux';
+import store from './app/store';
+
 import CheckoutNumber from './app/components/checkoutNumber';
+import UpdateCheckoutNumber from './app/containers/updateCheckout';
+
 import CurrentCheckout from './app/components/currentCheckout';
 import TripleDoubleSingle from './app/components/tripleDoubleSingle';
 import NumberSelection from './app/components/numberSelection';
@@ -39,7 +45,7 @@ class GameScreen extends React.Component {
       <View style={styles.container}>
         <View style={styles.container}>
           <ImageBackground style={{width: 300, height: 300, alignItems: 'center', justifyContent: 'center'}} source={require("./app/assets/bg_board.png")}>
-            <CheckoutNumber/>
+            <UpdateCheckoutNumber/>
             <CurrentCheckout/>
             <SelectionsMade/>
           </ImageBackground>
@@ -85,7 +91,11 @@ class PostGameScreen extends React.Component {
 //this is what makes the view load.
 export default class App extends React.Component {
   render() {
-    return <StackApp/>;
+    return(
+        <Provider store={store}>
+            <StackApp/>
+        </Provider>
+        )
   }
 }
 

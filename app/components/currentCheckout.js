@@ -5,6 +5,7 @@
 import React from "react";
 import {View, Text, StyleSheet} from 'react-native';
 
+
 /*
 * logic here is to grab the checkoutNumber from the checkout Component, we can also have a state that the game cycle
 * refers to in order to have everything in on area instead of one compnent. build a state of props for each game cycle.
@@ -17,6 +18,7 @@ class CurrentCheckout extends React.Component {
         this.state = {
             currentCheckout: this.props.currentCheckout,
         };
+
     }
 
     render(){

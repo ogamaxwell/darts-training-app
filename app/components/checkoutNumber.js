@@ -4,6 +4,8 @@
 
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import addCheckoutNumber from '../actions';
+import store from '../store';
 
 class CheckoutNumber extends React.Component {
 
@@ -36,7 +38,8 @@ class CheckoutNumber extends React.Component {
     }
 
     componentWillMount(){
-        this.fetchPostCode();
+        this.props.gameCycleStart();
+        console.log(JSON.stringify(store.getState()));
     }
 
     /* TODO: find a way to call the fetchPostCode Function when view is loaded
