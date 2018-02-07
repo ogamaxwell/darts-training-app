@@ -8,30 +8,64 @@ import {StyleSheet, View, Text, TouchableOpacity, ImageBackground} from 'react-n
 class TripleDoubleSingle extends React.Component{
     constructor(props){
         super(props);
-        this.prop = {
-            selection: Number,
+        this.state = {
+            uriT: require('../assets/btn_segment_off.png'),
+            uriD: require('../assets/btn_segment_off.png'),
+            uriS: require('../assets/btn_segment_off.png'),
         };
     }
+
+    onSelect (props, label) {
+      this.props.updateMultiplier(props, label);
+    };
+
+    changeBackgroundImageT = () => {
+        this.setState({
+            uriT: require("../assets/btn_segment_on.png"),
+            uriD: require("../assets/btn_segment_off.png"),
+            uriS: require("../assets/btn_segment_off.png"),
+        })
+    };
+    changeBackgroundImageD = () => {
+        this.setState({
+            uriD: require("../assets/btn_segment_on.png"),
+            uriS: require("../assets/btn_segment_off.png"),
+            uriT: require("../assets/btn_segment_off.png"),
+        })
+    };
+    changeBackgroundImageS = () => {
+        this.setState({
+            uriS: require("../assets/btn_segment_on.png"),
+            uriT: require("../assets/btn_segment_off.png"),
+            uriD: require("../assets/btn_segment_off.png"),
+        })
+    };
 
     render(){
         return(
             <View style={styles.flexbox}>
-                <TouchableOpacity>
-                    <ImageBackground style={styles.image} reizeMode='contain' source={require("../assets/btn_segment_off.png")} >
+                <TouchableOpacity onPress = {() => {
+                    this.onSelect(3,"T");
+                    this.changeBackgroundImageT();}}>
+                    <ImageBackground  style={styles.image} reizeMode='contain' source={this.state.uriT} >
                         <View style={styles.textView}>
                             <Text style={styles.textStyle}>Triple</Text>
                         </View>
                     </ImageBackground>
                 </TouchableOpacity>
-                <TouchableOpacity>
-                    <ImageBackground style = {styles.image} reizeMode='contain' source={require("../assets/btn_segment_off.png")} >
+                <TouchableOpacity onPress = {() => {
+                    this.onSelect(2,'D');
+                    this.changeBackgroundImageD();}}>
+                    <ImageBackground style = {styles.image} reizeMode='contain' source={this.state.uriD} >
                         <View style={styles.textView}>
                             <Text style={styles.textStyle}>Double</Text>
                         </View>
                     </ImageBackground>
                 </TouchableOpacity>
-                <TouchableOpacity>
-                    <ImageBackground style = {styles.image} reizeMode='contain' source={require("../assets/btn_segment_off.png")}>
+                <TouchableOpacity onPress = {() =>{
+                    this.onSelect(1,"S");
+                    this.changeBackgroundImageS();}}>
+                    <ImageBackground style = {styles.image} reizeMode='contain' source={this.state.uriS}>
                         <View style={styles.textView}>
                             <Text style={styles.textStyle}>Single</Text>
                         </View>
@@ -45,13 +79,7 @@ class TripleDoubleSingle extends React.Component{
 const styles = StyleSheet.create({
     flexbox:{
         flexDirection: 'row',
-    },
-    imageButton:{
-        borderWidth: 1,
-    },
-    button: {
-        alignItems: 'center',
-        padding: 10,
+        justifyContent: 'center',
     },
     textView: {
         backgroundColor: 'transparent',
@@ -67,24 +95,13 @@ const styles = StyleSheet.create({
         fontSize: 20,
 
     },
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-
-    },
-    //testing
-    paragraph: {
-        textAlign: 'center'
-    },
     image:{
         flexGrow:1,
-        width: 140,
+        width: 132,
         height:50,
         alignItems: 'center',
         justifyContent: 'center',
     }
-
-
 });
 
 export default TripleDoubleSingle;

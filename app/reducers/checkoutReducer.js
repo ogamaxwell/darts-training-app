@@ -8,12 +8,7 @@ import {ADD_CHECKOUT_NUMBER} from '../actions/actionTypes';
 const checkoutReducers = (state=[], action) => {
     switch(action.type){
         case ADD_CHECKOUT_NUMBER:
-            return [
-                ...state,
-                {
-                    checkoutNumber: action.checkoutNumber,
-                }
-            ];
+            return action.checkoutNumber;
         default:
             return state
     }

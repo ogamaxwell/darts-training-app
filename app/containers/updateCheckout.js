@@ -6,17 +6,17 @@ import CheckoutNumber from '../components/checkoutNumber';
 import { addCheckoutNumber, getCheckoutNumber } from '../actions';
 import { connect } from 'react-redux';
 
+
 const mapStateToProps = state => {
     return {
-
+        checkoutNum: state.getCheckoutNumber,
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        gameCycleStart: (inputCheckoutNumber) => {
+        getCheckoutNumber: () => {
             dispatch(getCheckoutNumber());
-            dispatch(addCheckoutNumber(inputCheckoutNumber));
         }
     };
 };

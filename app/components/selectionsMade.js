@@ -8,21 +8,15 @@ import {View, Text, StyleSheet} from 'react-native';
 export default class SelectionsMade extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            first: 'T5',
-            second: 'S18',
-            third: 'D10'
-        }
     }
 
     render(){
         return(
-            <View>
-                <View style={styles.flexBox}>
-                    <Text style={styles.textStyle}>{this.state.first}</Text>
-                    <Text style={styles.textStyle}>{this.state.second}</Text>
-                    <Text style={styles.textStyle}>{this.state.third}</Text>
-                </View>
+            <View style={styles.flexBox}>
+                {this.props.selections.map(i => {
+                    return(<Text style={styles.textStyle} key={i}>{i}</Text>)
+                })}
+
             </View>
         )
     }
