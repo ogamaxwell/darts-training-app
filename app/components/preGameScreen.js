@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text, Button, StyleSheet} from 'react-native';
 import {StackNavigator, withNavigation} from "react-navigation";
 
 
@@ -12,20 +12,35 @@ class PreGameScreen extends React.Component {
 
     static navigationOptions = {
         title: 'Pre Game',
+        header: null,
     };
 
     render() {
         const { navigate } = this.props.navigation;
         return (
             <View style={styles.container}>
-                <Text>Pre Game</Text>
                 <Button
-                    title="Practice"
+                    title="Two Dart Out"
+                    onPress ={() => navigate('twoDart')}
+                />
+                <Button
+                    title="Three Dart Out"
                     onPress ={() => navigate('Game')}
                 />
             </View>
         );
     }
 }
+
+
+const styles = StyleSheet.create({
+    container:{
+        flex:1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#000000'
+        //#dddfd4
+    },
+});
 
 export default withNavigation(PreGameScreen);

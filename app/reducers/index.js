@@ -11,6 +11,8 @@ import updateMultiplier from './updateMultiplier';
 import updateSelection from './updateSelection';
 import updateSelectionsMade from './updateSelectionsMade';
 import updateTurns from './updateTurns';
+import bestCombo from './getBestCombo';
+
 
 export default combineReducers({
     checkoutReducers,
@@ -20,4 +22,5 @@ export default combineReducers({
     updateSelection,
     updateSelectionsMade,
     updateTurns,
+    bestCombo
 });

@@ -3,12 +3,15 @@
  */
 
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 
 export default class SelectionsMade extends React.Component{
     constructor(props){
         super(props);
     }
+
+
+
 
     render(){
         return(
@@ -27,9 +30,13 @@ const styles = StyleSheet.create({
        flexDirection: 'row'
    },
     textStyle: {
-       fontSize: 30,
+        fontSize: 30,
         color: 'white',
         fontWeight: 'bold',
         padding: 5
+    },
+    image:{
+       height: 30,
+        width: 30,
     }
 });

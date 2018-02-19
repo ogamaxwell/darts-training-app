@@ -8,7 +8,7 @@ import {StyleSheet, Text, View, ImageBackground} from 'react-native';
 import {StackNavigator} from "react-navigation";
 
 
-import UpdateCheckoutNumber from '../containers/updateCheckout';
+import UpdateCheckoutNumber from '../containers/checkoutNumber';
 
 import CurrentCheckout from '../containers/currentCheckout';
 import TripleDoubleSingle from '../containers/updateMultiplier';
@@ -25,21 +25,22 @@ class GameScreen extends React.Component {
     };
 
     render(){
-        const { navigate } = this.props.navigation;
         return (
             <View style={styles.container}>
                 <View  style={styles.container}>
-                    <ImageBackground style={styles.image} source={require("../assets/bg_board.png")}>
+                    <ImageBackground style={[styles.image]} source={require("../assets/bg_board.png")}>
+                        <Text>CHECKOUT</Text>
                         <UpdateCheckoutNumber/>
+
                         <CurrentCheckout/>
                         <SelectionsMade/>
+
                     </ImageBackground>
                 </View>
-                <View style ={styles.container}>
                     <TripleDoubleSingle/>
                     <NumberSelection/>
-                </View>
             </View>
+
         );
     }
 }
@@ -48,7 +49,8 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#dddfd4'
+        backgroundColor: '#000000'
+        //#dddfd4
     },
     image: {
         width: 300,

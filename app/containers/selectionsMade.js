@@ -8,7 +8,8 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
     return {
-        selections: state.updateSelectionsMade
+        selections: state.updateSelectionsMade,
+        selectionsLength: state.updateSelectionsMade.length,
     }
 };
 

@@ -12,6 +12,8 @@ import {ADD_CHECKOUT_NUMBER,
         UPDATE_SELECTIONS_MADE,
         UPDATE_TURNS,
         CLEAN_STATE,
+        CLEAN_STATE_CHECKOUT,
+        FETCH_SELECTION_DATA,
         } from './actionTypes';
 
 
@@ -26,10 +28,9 @@ export const addCheckoutNumber = (checkoutNumber) => {
 
 export const getCheckoutNumber = () => {
     return(dispatch) => {
-        fetch("http://5cb61616.ngrok.io/out-data/game/ran-num")
+        fetch("http://localhost:3000/out-data/game/ran-num")
             .then(res => {
                 return res.json();
-
             })
             .then(checkoutData => {
                 let turns = checkoutData['outCombo'].length;
@@ -48,6 +49,72 @@ export const getCheckoutNumber = () => {
                 });
             })
     }
+};
+
+export const getTwoDartCheckoutNumber = () => {
+    return(dispatch) => {
+        fetch("https://fathomless-eyrie-63078.herokuapp.com/outs/game/2dart")
+            .then(res => {
+                return res.json();
+            })
+            .then(checkoutData => {
+                let turns = checkoutData['outCombo'].length;
+                checkoutData = checkoutData['outNum'];
+                dispatch({
+                    type: FETCH_CHECKOUT_NUMBER,
+                    checkoutNumber: checkoutData,
+                });
+                dispatch({
+                    type: UPDATE_CHECKOUT_NUMBER,
+                    currentCheckout: checkoutData,
+                });
+                dispatch({
+                    type: UPDATE_TURNS,
+                    turnsLeft: turns,
+                });
+            })
+    }
+};
+
+export const getThreeDartCheckoutNumber = () => {
+    return(dispatch) => {
+        fetch("https://fathomless-eyrie-63078.herokuapp.com/outs/game/3dart")
+            .then(res => {
+                return res.json();
+            })
+            .then(checkoutData => {
+                let turns = checkoutData['outCombo'].length;
+                checkoutData = checkoutData['outNum'];
+                dispatch({
+                    type: FETCH_CHECKOUT_NUMBER,
+                    checkoutNumber: checkoutData,
+                });
+                dispatch({
+                    type: UPDATE_CHECKOUT_NUMBER,
+                    currentCheckout: checkoutData,
+                });
+                dispatch({
+                    type: UPDATE_TURNS,
+                    turnsLeft: turns,
+                });
+            })
+    }
+};
+
+export const getSelectionData = (outNum) =>{
+  return(dispatch) => {
+      fetch("http://localhost:3000/out-data/"+ outNum)
+          .then(res => {
+              return res.json();
+          })
+          .then(res => {
+              let outSelection = res["outCombo"];
+              dispatch({
+                  type:FETCH_SELECTION_DATA,
+                  bestCombo: outSelection,
+              })
+          })
+  }
 };
 
 export const updateCurrentCheckout = (currentCheckout) => {
@@ -101,6 +168,16 @@ export const cleanState = () => {
   return{
       type: CLEAN_STATE,
       selectionsMade: [],
+
   }
 };
+
+export const cleanStateCheckout = () => {
+    return{
+        type: CLEAN_STATE_CHECKOUT,
+        currentCheckout: 0,
+    }
+};
+
+
 

@@ -4,7 +4,7 @@
 
 
 import { connect } from 'react-redux';
-import { cleanState } from '../actions';
+import { cleanState, cleanStateCheckout } from '../actions';
 import PlayAgainButton from '../components/playAgainButton';
 
 const mapStateToProps = state => {
@@ -18,6 +18,7 @@ const mapDispatchToProps = (dispatch) => {
     return{
         cleanState: () => {
             dispatch(cleanState());
+            dispatch(cleanStateCheckout());
         }
     }
 };
