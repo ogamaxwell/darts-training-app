@@ -8,7 +8,7 @@ import { updateMultiplier } from '../actions';
 
 const mapStateToProps = state => {
     return {
-
+       turnsLeft: state.turnsLeft,
     }
 };
 

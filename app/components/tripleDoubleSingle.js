@@ -12,11 +12,15 @@ class TripleDoubleSingle extends React.Component{
             uriT: require('../assets/btn_segment_off.png'),
             uriD: require('../assets/btn_segment_off.png'),
             uriS: require('../assets/btn_segment_off.png'),
+            disabledT: false,
+            disabledD: false,
+            disabledS: false,
         };
     }
 
     onSelect (props, label) {
       this.props.updateMultiplier(props, label);
+
     };
 
     changeBackgroundImageT = () => {
@@ -41,10 +45,12 @@ class TripleDoubleSingle extends React.Component{
         })
     };
 
+
+
     render(){
         return(
             <View style={styles.flexbox}>
-                <TouchableOpacity onPress = {() => {
+                <TouchableOpacity disabled={this.state.disabledT} onPress = {() => {
                     this.onSelect(3,"T");
                     this.changeBackgroundImageT();}}>
                     <ImageBackground  style={styles.image} reizeMode='contain' source={this.state.uriT} >
@@ -53,7 +59,7 @@ class TripleDoubleSingle extends React.Component{
                         </View>
                     </ImageBackground>
                 </TouchableOpacity>
-                <TouchableOpacity onPress = {() => {
+                <TouchableOpacity disabled={this.state.disabledD} onPress = {() => {
                     this.onSelect(2,'D');
                     this.changeBackgroundImageD();}}>
                     <ImageBackground style = {styles.image} reizeMode='contain' source={this.state.uriD} >
@@ -62,7 +68,7 @@ class TripleDoubleSingle extends React.Component{
                         </View>
                     </ImageBackground>
                 </TouchableOpacity>
-                <TouchableOpacity onPress = {() =>{
+                <TouchableOpacity disabled={this.state.disabledS} onPress = {() =>{
                     this.onSelect(1,"S");
                     this.changeBackgroundImageS();}}>
                     <ImageBackground style = {styles.image} reizeMode='contain' source={this.state.uriS}>
@@ -80,6 +86,7 @@ const styles = StyleSheet.create({
     flexbox:{
         flexDirection: 'row',
         justifyContent: 'center',
+        paddingBottom: 10,
     },
     textView: {
         backgroundColor: 'transparent',
@@ -93,6 +100,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flex:1,
         fontSize: 20,
+        fontWeight: 'bold',
 
     },
     image:{

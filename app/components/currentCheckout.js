@@ -20,22 +20,23 @@ class CurrentCheckout extends React.Component {
 
     render(){
         return (
-            <View style={styles.container}>
-                <Text style = {styles.text}>
-                    {this.props.currentCheckout}
-                </Text>
-            </View>
+            <Text style = {styles.text}>
+                {this.props.currentCheckout}
+            </Text>
         )
     }
 }
 
 const styles = StyleSheet.create({
     text: {
-        fontSize: 120,
+        fontSize: 150,
         color: 'white',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        margin: 0,
+        padding: 0,
     },
     container:{
+
         justifyContent: 'center',
         alignItems: 'center',
     }

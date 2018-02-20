@@ -26,31 +26,6 @@ export const addCheckoutNumber = (checkoutNumber) => {
     }
 };
 
-export const getCheckoutNumber = () => {
-    return(dispatch) => {
-        fetch("http://localhost:3000/out-data/game/ran-num")
-            .then(res => {
-                return res.json();
-            })
-            .then(checkoutData => {
-                let turns = checkoutData['outCombo'].length;
-                checkoutData = checkoutData['outNum'];
-                dispatch({
-                    type: FETCH_CHECKOUT_NUMBER,
-                    checkoutNumber: checkoutData,
-                });
-                dispatch({
-                    type: UPDATE_CHECKOUT_NUMBER,
-                    currentCheckout: checkoutData,
-                });
-                dispatch({
-                    type: UPDATE_TURNS,
-                    turnsLeft: turns,
-                });
-            })
-    }
-};
-
 export const getTwoDartCheckoutNumber = () => {
     return(dispatch) => {
         fetch("https://fathomless-eyrie-63078.herokuapp.com/outs/game/2dart")
@@ -103,7 +78,7 @@ export const getThreeDartCheckoutNumber = () => {
 
 export const getSelectionData = (outNum) =>{
   return(dispatch) => {
-      fetch("http://localhost:3000/out-data/"+ outNum)
+      fetch("https://fathomless-eyrie-63078.herokuapp.com/outs/"+ outNum)
           .then(res => {
               return res.json();
           })

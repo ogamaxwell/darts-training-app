@@ -11,7 +11,7 @@ import {StackNavigator} from "react-navigation";
 import UpdateCheckoutNumber from '../containers/checkoutNumber';
 
 import CurrentCheckout from '../containers/currentCheckout';
-import TripleDoubleSingle from '../containers/updateMultiplier';
+import TripleDoubleSingle from '../containers/tripleDoubleSingle';
 import NumberSelection from '../containers/numberSelection';
 import SelectionsMade from '../containers/selectionsMade';
 

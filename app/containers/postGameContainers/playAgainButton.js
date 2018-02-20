@@ -4,8 +4,8 @@
 
 
 import { connect } from 'react-redux';
-import { cleanState, cleanStateCheckout } from '../actions';
-import PlayAgainButton from '../components/playAgainButton';
+import { cleanState, cleanStateCheckout } from '../../actions/index';
+import PlayAgainButton from '../../components/postGameComponents/playAgainButton';
 
 const mapStateToProps = state => {
     return{

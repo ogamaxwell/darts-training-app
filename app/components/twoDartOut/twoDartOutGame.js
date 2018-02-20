@@ -10,9 +10,8 @@ import {StackNavigator} from "react-navigation";
 import UpdateCheckoutNumber from '../../containers/twoDartOut/checkoutNumber';
 
 import CurrentCheckout from '../../containers/currentCheckout';
-import TripleDoubleSingle from '../../containers/updateMultiplier';
+import TripleDoubleSingle from '../../containers/tripleDoubleSingle';
 import NumberSelection from '../../containers/numberSelection';
-import SelectionsMade from '../../containers/selectionsMade';
 import TurnsLeft from '../../containers/turnsLeft';
 
 
@@ -27,19 +26,17 @@ class TwoDartOutGameScreen extends React.Component {
     render(){
         return (
             <View style={styles.container}>
-                <View  style={styles.container}>
+                <View style={styles.container}>
                     <ImageBackground style={[styles.image]} source={require("../../assets/bg_board.png")}>
                         <Image style={styles.logo} source ={require('../../assets/logo_sm.png')}/>
                         <UpdateCheckoutNumber/>
                         <CurrentCheckout/>
-                        <SelectionsMade/>
                         <TurnsLeft/>
                     </ImageBackground>
                 </View>
                 <TripleDoubleSingle/>
                 <NumberSelection/>
             </View>
-
         );
     }
 }

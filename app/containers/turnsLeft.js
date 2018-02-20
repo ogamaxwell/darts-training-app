@@ -10,6 +10,7 @@ import TurnsLeft from '../components/turnsLeft';
 const mapStateToProps = state => {
   return {
       turnsLeft: state.updateTurns,
+      selections: state.updateSelectionsMade,
   }
 };
 

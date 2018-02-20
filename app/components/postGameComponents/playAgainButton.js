@@ -18,10 +18,8 @@ class PlayAgainButton extends React.Component {
     render(){
         const {navigate} = this.props.navigation;
         return(
-            <TouchableOpacity onPress = {() => {this.clean(); navigate("Game")}}>
-                <ImageBackground style={styles.imageBackground} source={require('../assets/btn_submit.png')}>
-                    <Text style={styles.textStyle}>Play Again</Text>
-                </ImageBackground>
+            <TouchableOpacity onPress = {() => {this.clean(); navigate("twoDart")}}>
+                <ImageBackground style={styles.imageBackground} source={require('../../assets/btn_submit.png')}/>
             </TouchableOpacity>
         )
     }

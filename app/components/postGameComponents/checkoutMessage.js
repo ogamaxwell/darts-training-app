@@ -8,7 +8,6 @@ import {StyleSheet, Text} from 'react-native';
 class checkoutMessage extends React.Component {
     render(){
         if(this.props.currentCheckoutNumber !== 0){
-            console.log(this.props.currentCheckoutNumber);
             return(
                 <Text style={styles.text}>
                     Ops, Looks like you didn't hit 0

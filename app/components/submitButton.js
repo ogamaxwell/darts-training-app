@@ -26,13 +26,15 @@ class SubmitButton extends React.Component {
         let turns1 = data1.updateTurns;
         let currentCheckout1 = data1.updateCurrentCheckout;
 
-        if(turns1 ===0 ){
+        if(currentCheckout1 !== 0 && turns1 ===0){
+            navigate("BustScreen");
+        }
+        else if(turns1 ===0 ){
             navigate('PostGame');
         }
         else if(currentCheckout1 < 1){
             navigate("PostGame");
         }
-
     };
 
 
@@ -43,11 +45,7 @@ class SubmitButton extends React.Component {
 
         <TouchableOpacity onPress = {() => this.onSelect()}>
             <View style={styles.test}>
-                <ImageBackground style={styles.submitImage} source={require('../assets/btn_submit.png')}>
-                    <View>
-                        <Text style={styles.textStyle}>Submit</Text>
-                    </View>
-                </ImageBackground>
+                <ImageBackground style={styles.submitImage} source={require('../assets/btn_submit.png')}/>
             </View>
         </TouchableOpacity>
         )

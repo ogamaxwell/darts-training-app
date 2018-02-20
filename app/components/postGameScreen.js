@@ -4,7 +4,7 @@
 
 import React from 'react';
 import {View, Text, Button, StyleSheet, ImageBackground} from 'react-native';
-import PlayAgainButton from '../containers/playAgainButton';
+import PlayAgainButton from '../containers/postGameContainers/playAgainButton';
 import PostCheckoutNumber from '../containers/postGameContainers/postCheckoutNumber';
 import SelectionsMade from '../containers/selectionsMade';
 import CheckoutData from '../containers/postGameContainers/checkoutData';
@@ -20,7 +20,6 @@ class PostGameScreen extends React.Component {
         return (
             <View style={styles.container}>
                 <ImageBackground style={[styles.image]} source={require("../assets/bg_board.png")}>
-                    <Text style={styles.text}>CHECKOUT</Text>
                     <PostCheckoutNumber/>
                     <PlayAgainButton/>
                 </ImageBackground>
@@ -47,11 +46,6 @@ const styles = StyleSheet.create({
         height: 300,
         alignItems: 'center',
         justifyContent: 'center'
-    },
-    text:{
-        fontSize: 20,
-        color: "white",
-        fontWeight:'bold',
     },
     container2:{
         backgroundColor:'grey',
