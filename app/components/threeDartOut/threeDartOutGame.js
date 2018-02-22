@@ -1,16 +1,17 @@
 /**
+ * Created by Max on 2/20/2018.
+ */
+
+/**
  * Created by Max on 2/17/2018.
  */
 
 import React from 'react';
-import {StyleSheet, Text, View, ImageBackground, Image, Button} from 'react-native';
+import {StyleSheet, Text, View, ImageBackground, Image} from 'react-native';
 import {StackNavigator} from "react-navigation";
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 
-
-
-import UpdateCheckoutNumber from '../../containers/twoDartOut/checkoutNumber';
+import UpdateCheckoutNumber from '../../containers/threeDartOut/checkoutNumber';
 
 import CurrentCheckout from '../../containers/currentCheckout';
 import TripleDoubleSingle from '../../containers/tripleDoubleSingle';
@@ -18,22 +19,15 @@ import NumberSelection from '../../containers/numberSelection';
 import TurnsLeft from '../../containers/turnsLeft';
 
 
-class TwoDartOutGameScreen extends React.Component {
+class ThreeDartOutGameScreen extends React.Component {
 
 
     static  navigationOptions = {
-        header: null
+        title: 'Three Dart Game',
+        header: null,
     };
 
-
-
     render(){
-
-        const myIcon = (
-            <Icon.Button name="menu" size={30}>
-
-            </Icon.Button>
-        );
         return (
             <View style={styles.container}>
                 <View style={styles.container}>
@@ -59,10 +53,13 @@ const styles = StyleSheet.create({
         //#dddfd4
     },
     image: {
-        width: 350,
-        height: 350,
+        width: 300,
+        height: 300,
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    withImage: {
+        flex: 1,
     },
     logo:{
         height: 75,
@@ -73,5 +70,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default TwoDartOutGameScreen;
-
+export default ThreeDartOutGameScreen;

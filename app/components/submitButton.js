@@ -26,10 +26,10 @@ class SubmitButton extends React.Component {
         let turns1 = data1.updateTurns;
         let currentCheckout1 = data1.updateCurrentCheckout;
 
-        if(currentCheckout1 !== 0 && turns1 ===0){
+        if(currentCheckout1 !== 0 && turns1 === 0){
             navigate("BustScreen");
         }
-        else if(turns1 ===0 ){
+        else if(turns1 === 0){
             navigate('PostGame');
         }
         else if(currentCheckout1 < 1){

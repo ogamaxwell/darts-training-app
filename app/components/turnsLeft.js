@@ -11,14 +11,17 @@ class TurnsLeft extends React.Component {
     render(){
         const holder = [];
 
-        for(let i = 0; i < this.props.turnsLeft; i++){
+        if(this.props.selections.length > 0){
             holder.push(
-                <View key={i}>
+                <View key={this.props.selections}>
                     {this.props.selections.map(i => {
                         return(<Text style={styles.textStyle} key={i}>{i}</Text>)
                     })}
                 </View>
             );
+        }
+
+        for(let i = 0; i < this.props.turnsLeft; i++){
             holder.push(
                 <View key={i}>
                     <Image key={i} style={styles.image} source={require("../assets/dart2.png")}/>
@@ -37,17 +40,17 @@ class TurnsLeft extends React.Component {
 export default TurnsLeft;
 
 const styles = StyleSheet.create({
-   image:{
+   image: {
        width: 30,
        height: 30,
    },
-    container:{
+    container: {
        flexDirection: "row",
         alignItems: 'center',
         justifyContent: 'center',
     },
     textStyle: {
-        fontSize: 30,
+        fontSize: 25,
         color: 'white',
         fontWeight: 'bold',
         padding: 5

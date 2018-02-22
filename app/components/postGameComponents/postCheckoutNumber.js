@@ -11,9 +11,7 @@ class PostCheckoutNumber extends React.Component {
         return(
             <View style={styles.container}>
                 <CheckoutMessage/>
-                <Text style={styles.textCheckout}>
-                    {this.props.checkoutNumber}
-                </Text>
+                <Text style={styles.textCheckout}>{this.props.checkoutNumber}</Text>
             </View>
         )
     }
@@ -28,7 +26,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     container:{
-        flex:1,
         justifyContent: "center",
         alignItems: 'center',
     },

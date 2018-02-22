@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import {View, Text, Button, StyleSheet, ImageBackground} from 'react-native';
+import {View, Text, Button, StyleSheet, ImageBackground, Image} from 'react-native';
 import PlayAgainButton from '../containers/postGameContainers/playAgainButton';
 import PostCheckoutNumber from '../containers/postGameContainers/postCheckoutNumber';
 import SelectionsMade from '../containers/selectionsMade';
@@ -19,13 +19,15 @@ class PostGameScreen extends React.Component {
     render(){
         return (
             <View style={styles.container}>
-                <ImageBackground style={[styles.image]} source={require("../assets/bg_board.png")}>
-                    <PostCheckoutNumber/>
-                    <PlayAgainButton/>
-                </ImageBackground>
+                <View style={styles.container}>
+                    <ImageBackground style={[styles.image]} source={require("../assets/bg_board.png")}>
+                        <Image style={styles.logo} source ={require('../assets/logo_sm.png')}/>
+                        <PostCheckoutNumber/>
+                        <PlayAgainButton/>
+                    </ImageBackground>
+                </View>
                 <View style={styles.container2}>
                     <CheckoutData/>
-
                 </View>
             </View>
         );
@@ -42,8 +44,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#000000',
     },
     image: {
-        width: 300,
-        height: 300,
+        width: 350,
+        height: 350,
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -51,5 +53,12 @@ const styles = StyleSheet.create({
         backgroundColor:'grey',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    logo:{
+        height: 75,
+        width: 150,
+        resizeMode: 'contain',
+        alignItems: 'center',
+        justifyContent: 'center',
     }
 });

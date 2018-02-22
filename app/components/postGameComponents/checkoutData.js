@@ -18,18 +18,18 @@ class checkoutData extends React.Component {
         return(
             <View style={styles.container}>
                 <View style={styles.container}>
-                    <Text style={styles.whiteText}>YOUR CHECKOUT</Text>
+                    <Text style={styles.whiteText}>MOST COMMON CHECKOUT</Text>
                     <View style= {styles.flexBox}>
                         {this.props.selectionsMade.map(i => {
-                            return(<View style={styles.boxes}><Text style={styles.yellowText} key={i}>{i}</Text></View>)
+                            return(<View style={styles.boxes}><Text style={styles.whiteText} key={i}>{i}</Text></View>)
                         })}
                     </View>
                 </View>
-                <View >
-                    <Text style={styles.whiteText}>MOST COMMON CHECKOUT</Text>
+                <View style={styles.container}>
+                    <Text style={styles.whiteText}>PDC CHECKOUT</Text>
                     <View style= {styles.flexBox}>
                         {this.props.bestCombo.map(i => {
-                            return(<View style={styles.boxes}><Text style={styles.redText} key={i}>{i}</Text></View>)
+                            return(<View style={styles.boxes}><Text style={styles.whiteText} key={i}>{i}</Text></View>)
                         })}
                     </View>
                 </View>
@@ -50,20 +50,16 @@ const styles = StyleSheet.create({
        alignItems: 'center',
    },
    boxes:{
-       backgroundColor: "#5b626d",
+       backgroundColor: "#3879e2",
        justifyContent: "center",
        alignItems: 'center',
        flexDirection: 'row',
        padding: 10,
+       margin: 10
    },
-   redText:{
-       color: 'red'
-   },
-    yellowText:{
-       color: 'yellow'
-    },
     whiteText: {
         color: 'white',
-        fontSize: 15,
+        fontSize: 25,
+        fontWeight: 'bold',
     }
 });

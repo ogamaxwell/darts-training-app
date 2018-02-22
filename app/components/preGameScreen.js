@@ -21,11 +21,11 @@ class PreGameScreen extends React.Component {
             <View style={styles.container}>
                 <Button
                     title="Two Dart Out"
-                    onPress ={() => navigate('twoDart')}
+                    onPress = {() => navigate('twoDart')}
                 />
                 <Button
-                    title="Three Dart Out"
-                    onPress ={() => navigate('Game')}
+                    title = "Three Dart Out"
+                    onPress = {() => navigate('threeDart')}
                 />
             </View>
         );

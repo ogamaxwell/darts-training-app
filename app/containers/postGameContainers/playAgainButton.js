@@ -9,7 +9,7 @@ import PlayAgainButton from '../../components/postGameComponents/playAgainButton
 
 const mapStateToProps = state => {
     return{
-
+        gameMode: state.currentGameMode,
     }
 };
 

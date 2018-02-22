@@ -9,19 +9,20 @@ import PostGameScreen from './app/components/postGameScreen';
 import GameScreen from './app/components/gameScreen';
 import PreGameScreen from './app/components/preGameScreen';
 import TwoDartOutGameScreen from './app/components/twoDartOut/twoDartOutGame';
+import ThreeDartOutGameScreen from './app/components/threeDartOut/threeDartOutGame';
 import BustScreen from './app/components/bustScreen/bustScreen';
-
-
 
 
 export const StackApp = StackNavigator({
     PreGame: {screen: PreGameScreen},
-    BustScreen: {screen: BustScreen},
     twoDart: {screen: TwoDartOutGameScreen},
-    Game: {screen: GameScreen},
     PostGame: {screen: PostGameScreen},
+    BustScreen: {screen: BustScreen},
+    threeDart: {screen: ThreeDartOutGameScreen},
+    Game: {screen: GameScreen},
 
 });
+
 
 //calls the app into the view
 //this is what makes the view load.

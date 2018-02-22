@@ -17,8 +17,12 @@ class PlayAgainButton extends React.Component {
 
     render(){
         const {navigate} = this.props.navigation;
+
         return(
-            <TouchableOpacity onPress = {() => {this.clean(); navigate("twoDart")}}>
+            <TouchableOpacity onPress = {() => {
+                this.clean();
+                navigate(this.props.gameMode);
+            }}>
                 <ImageBackground style={styles.imageBackground} source={require('../../assets/btn_submit.png')}/>
             </TouchableOpacity>
         )
@@ -33,6 +37,8 @@ const styles = StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: "red"
+
     },
     textStyle: {
         color: 'white',

@@ -14,7 +14,7 @@ export const UPDATE_TURNS = 'UPDATE_TURNS';
 export const CLEAN_STATE = 'CLEAN_STATE';
 export const CLEAN_STATE_CHECKOUT = 'CLEAN_STATE_CHECKOUT';
 export const FETCH_SELECTION_DATA ='FETCH_SELECTION_DATA';
-
+export const GAME_MODE = 'GAME_MODE';
 
 
 

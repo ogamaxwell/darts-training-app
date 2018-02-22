@@ -3,7 +3,7 @@
  */
 
 import CheckoutNumber from '../../components/twoDartOut/checkoutNumber';
-import { getTwoDartCheckoutNumber } from '../../actions';
+import { getTwoDartCheckoutNumber, gameMode } from '../../actions';
 import { connect } from 'react-redux';
 
 
@@ -17,6 +17,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getCheckoutNumber: () => {
             dispatch(getTwoDartCheckoutNumber());
+            dispatch(gameMode('twoDart'));
         }
     };
 };

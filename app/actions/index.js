@@ -14,6 +14,7 @@ import {ADD_CHECKOUT_NUMBER,
         CLEAN_STATE,
         CLEAN_STATE_CHECKOUT,
         FETCH_SELECTION_DATA,
+        GAME_MODE,
         } from './actionTypes';
 
 
@@ -153,6 +154,14 @@ export const cleanStateCheckout = () => {
         currentCheckout: 0,
     }
 };
+
+export const gameMode = (props) => {
+    return{
+        type: GAME_MODE,
+        gameMode: props,
+
+    }
+}
 
 
 
