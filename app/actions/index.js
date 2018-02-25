@@ -144,7 +144,8 @@ export const cleanState = () => {
   return{
       type: CLEAN_STATE,
       selectionsMade: [],
-
+      multiplier: [],
+      selection: [],
   }
 };
 
@@ -161,7 +162,9 @@ export const gameMode = (props) => {
         gameMode: props,
 
     }
-}
+};
+
+
 
 
 

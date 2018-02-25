@@ -4,15 +4,12 @@
 
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import CheckoutMessage from '../../containers/postGameContainers/checkoutMessage';;
+
 
 class PostCheckoutNumber extends React.Component {
     render(){
         return(
-            <View style={styles.container}>
-                <CheckoutMessage/>
-                <Text style={styles.textCheckout}>{this.props.checkoutNumber}</Text>
-            </View>
+            <Text style={styles.textCheckout}>{this.props.checkoutNumber}</Text>
         )
     }
 }
@@ -20,17 +17,8 @@ class PostCheckoutNumber extends React.Component {
 export default PostCheckoutNumber;
 
 const styles = StyleSheet.create({
-    textCheckout:{
-        fontSize: 120,
-        color: "white",
-        fontWeight: 'bold',
-    },
-    container:{
-        justifyContent: "center",
-        alignItems: 'center',
-    },
-    text:{
-        fontSize: 20,
+    textCheckout: {
+        fontSize: 125,
         color: 'white',
         fontWeight: 'bold',
     }

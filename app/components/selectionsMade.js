@@ -19,7 +19,6 @@ export default class SelectionsMade extends React.Component{
                 {this.props.selections.map(i => {
                     return(<Text style={styles.textStyle} key={i}>{i}</Text>)
                 })}
-
             </View>
         )
     }
@@ -35,8 +34,4 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         padding: 5
     },
-    image:{
-       height: 30,
-        width: 30,
-    }
 });

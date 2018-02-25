@@ -5,9 +5,7 @@
 import React from 'react';
 import {StyleSheet, Text, View, ImageBackground, Image, Button} from 'react-native';
 import {StackNavigator} from "react-navigation";
-import Icon from 'react-native-vector-icons/FontAwesome';
-
-
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 
 import UpdateCheckoutNumber from '../../containers/twoDartOut/checkoutNumber';
@@ -16,46 +14,63 @@ import CurrentCheckout from '../../containers/currentCheckout';
 import TripleDoubleSingle from '../../containers/tripleDoubleSingle';
 import NumberSelection from '../../containers/numberSelection';
 import TurnsLeft from '../../containers/turnsLeft';
+import {Container, Content, Icon} from 'native-base';
 
 
 class TwoDartOutGameScreen extends React.Component {
 
-
     static  navigationOptions = {
-        header: null
+        /*headerStyle:{
+            backgroundColor: '#000000'
+        },
+        headerTintColor: 'white',
+        */
+        header: null,
     };
+
 
 
 
     render(){
 
-        const myIcon = (
-            <Icon.Button name="menu" size={30}>
-
-            </Icon.Button>
-        );
         return (
             <View style={styles.container}>
+
                 <View style={styles.container}>
                     <ImageBackground style={[styles.image]} source={require("../../assets/bg_board.png")}>
                         <Image style={styles.logo} source ={require('../../assets/logo_sm.png')}/>
+                        <Icon name="home" style={{fontSize: 20}}/>
                         <UpdateCheckoutNumber/>
                         <CurrentCheckout/>
                         <TurnsLeft/>
                     </ImageBackground>
                 </View>
-                <TripleDoubleSingle/>
-                <NumberSelection/>
+                    <TripleDoubleSingle/>
+                    <NumberSelection/>
+
             </View>
         );
     }
 }
 const styles = StyleSheet.create({
+    holder: {
+        paddingTop: 10,
+        flex:1,
+        alignItems: 'center',
+        alignContent:"center",
+        justifyContent:'center',
+        backgroundColor: '#000000'
+    },
+    dartBoard:{
+      flex: 1,
+    },
+
     container:{
+
         flex:1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#000000'
+
         //#dddfd4
     },
     image: {

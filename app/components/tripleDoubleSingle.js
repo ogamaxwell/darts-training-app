@@ -47,12 +47,44 @@ class TripleDoubleSingle extends React.Component{
 
 
 
+    playSound = () => {
+
+        const Sound = require('react-native-sound');
+
+        Sound.setCategory('Playback');
+
+        let btnPressed = new Sound('app/assets/sounds/BtnPress.mp3', Sound.MAIN_BUNDLE, (error) => {
+            if (error) {
+                console.log('failed to load the sound: ', error);
+                return;
+            }
+
+            console.log('duration in second: ' + btnPressed.getDuration() + 'number of channels: ' + btnPressed.getNumberOfChannels)
+        });
+
+        btnPressed.play((success) => {
+            if (success) {
+                console.log('successfully finished playing');
+            } else {
+                console.log('playback failed due to audio decoding errors');
+                // reset the player to its uninitialized state (android only)
+                // this is the only option to recover after an error occured and use the player again
+                btnPressed.reset();
+            }
+        });
+    };
+
+
+
     render(){
+
+
         return(
             <View style={styles.flexbox}>
                 <TouchableOpacity disabled={this.state.disabledT} onPress = {() => {
                     this.onSelect(3,"T");
-                    this.changeBackgroundImageT();}}>
+                    this.changeBackgroundImageT();
+                }}>
                     <ImageBackground  style={styles.image} reizeMode='contain' source={this.state.uriT} >
                         <View style={styles.textView}>
                             <Text style={styles.textStyle}>Triple</Text>
@@ -87,6 +119,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         paddingBottom: 10,
+        paddingTop: 10,
     },
     textView: {
         backgroundColor: 'transparent',
@@ -106,7 +139,7 @@ const styles = StyleSheet.create({
     image:{
         flexGrow:1,
         width: 132,
-        height:50,
+        height:40,
         alignItems: 'center',
         justifyContent: 'center',
     }

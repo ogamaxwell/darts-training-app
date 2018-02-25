@@ -20,7 +20,15 @@ class SubmitButton extends React.Component {
         let turns = data.updateTurns;
         let label = data.updateMultiplier[1];
         const {navigate} = this.props.navigation;
-        this.props.submitButtonPressed(multiplier,selection,currentCheckout, turns, label);
+        if(multiplier === [] || selection === []){
+            return null
+        }
+        else if(turns ===1 && label !== 'D'){
+            return null
+        }
+        else if (selection > 0){
+            this.props.submitButtonPressed(multiplier,selection,currentCheckout, turns, label);
+        }
         //these are updated data variables. And can be used as such.
         let data1 = store.getState();
         let turns1 = data1.updateTurns;
