@@ -77,6 +77,18 @@ export default class NumberSelection extends React.Component {
 
     };
 
+    playSound = () => {
+        try {
+            const { soundObject, status } =  Expo.Audio.Sound.create(
+                require('../assets/sounds/BtnPress.mp3'),
+                { shouldPlay: true }
+            );
+            // Your sound is playing!
+        } catch (error) {
+            // An error occurred!
+        }
+    };
+
     render(){
         return(
                 /*
@@ -85,7 +97,7 @@ export default class NumberSelection extends React.Component {
             <View>
                 <View style={styles.flexRow}>
                     {this.index1.map(i => {
-                        return <TouchableOpacity onPress ={() => this.onPress(i)} key={i}>
+                        return <TouchableOpacity onPress ={() => {this.onPress(i); this.playSound();}} key={i}>
                             <ImageBackground key={i} style={styles.imageBox} source={this.state[i]}>
                                 <View key={i} style={styles.textView}>
                                     <Text style={styles.textStyle} key={i}>{i}</Text>
@@ -96,7 +108,7 @@ export default class NumberSelection extends React.Component {
                 </View>
                 <View style={styles.flexRow}>
                     {this.index2.map(i => {
-                        return <TouchableOpacity onPress ={() => this.onPress(i)} key={i}>
+                        return <TouchableOpacity onPress ={() => {this.onPress(i); this.playSound();}} key={i}>
                             <ImageBackground key={i} style={styles.imageBox} source={this.state[i]}>
                                 <View key={i} style={styles.textView}>
                                     <Text style={styles.textStyle} key={i}>{i}</Text>
@@ -107,7 +119,7 @@ export default class NumberSelection extends React.Component {
                 </View>
                 <View style={styles.flexRow}>
                     {this.index3.map(i => {
-                        return <TouchableOpacity onPress ={() => this.onPress(i)} key={i}>
+                        return <TouchableOpacity onPress ={() => {this.onPress(i); this.playSound();}} key={i}>
                             <ImageBackground key={i} style={styles.imageBox} source={this.state[i]}>
                                 <View key={i} style={styles.textView}>
                                     <Text  style={styles.textStyle} key={i}>{i}</Text>
@@ -118,7 +130,7 @@ export default class NumberSelection extends React.Component {
                 </View>
                 <View style={styles.flexRow}>
                     {this.index4.map(i => {
-                        return <TouchableOpacity onPress ={() => this.onPress(i)} key={i}>
+                        return <TouchableOpacity onPress ={() => {this.onPress(i); this.playSound();}} key={i}>
                             <ImageBackground key={i} style={styles.imageBox} source={this.state[i]}>
                                 <View key={i}>
                                     <Text style={styles.textStyle} key={i}>{i}</Text>
@@ -126,7 +138,7 @@ export default class NumberSelection extends React.Component {
                             </ImageBackground>
                         </TouchableOpacity>
                     })}
-                    <TouchableOpacity onPress ={() => this.onPress(25)}>
+                    <TouchableOpacity onPress ={() => {this.onPress(25); this.playSound();}}>
                         <ImageBackground style={styles.imageBox} source={this.state[25]}>
                             <View>
                                 <Text style={{color: 'white',

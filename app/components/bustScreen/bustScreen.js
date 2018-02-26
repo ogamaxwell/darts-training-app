@@ -20,6 +20,18 @@ class BustScreen extends React.Component {
     };
 
 
+    componentWillMount = () => {
+        try {
+            const { soundObject, status } =  Expo.Audio.Sound.create(
+                require('../../assets/sounds/Bust.mp3'),
+                { shouldPlay: true }
+            );
+            // Your sound is playing!
+        } catch (error) {
+            // An error occurred!
+        }
+    };
+
 
     postGame = () =>{
         const {navigate} = this.props.navigation;

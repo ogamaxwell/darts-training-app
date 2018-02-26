@@ -13,9 +13,7 @@ class CheckoutNumber extends React.Component {
 
     render(){
         return (
-            <View style={styles.containeR}>
-                <Text style={styles.textSize}>{this.props.checkoutNum}</Text>
-            </View>
+            <Text style={styles.textSize}>{this.props.checkoutNum}</Text>
         );
     }
 }

@@ -3,8 +3,8 @@
  */
 
 import React from 'react';
-import {StyleSheet, Text, View, ImageBackground, Image, Button} from 'react-native';
-import {StackNavigator} from "react-navigation";
+import {StyleSheet, Text, View, ImageBackground, Image, Button, TouchableOpacity} from 'react-native';
+import {StackNavigator, withNavigation} from "react-navigation";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 
@@ -16,16 +16,26 @@ import NumberSelection from '../../containers/numberSelection';
 import TurnsLeft from '../../containers/turnsLeft';
 import {Container, Content, Icon} from 'native-base';
 
+import {Ionicons} from '@expo/vector-icons';
+
 
 class TwoDartOutGameScreen extends React.Component {
 
-    static  navigationOptions = {
-        /*headerStyle:{
-            backgroundColor: '#000000'
-        },
-        headerTintColor: 'white',
-        */
-        header: null,
+    static  navigationOptions = ({navigation}) => {
+        return {
+            headerStyle: {
+                backgroundColor: '#000000'
+            },
+            headerTintColor: 'white',
+            headerRight: (
+
+                <TouchableOpacity onPress={() => {
+                    navigation.navigate('PreGame');
+                }}>
+                    <Ionicons style={{paddingRight: 10}} name="md-menu" color="white" size={32}/>
+                </TouchableOpacity>
+            )
+        }
     };
 
 
@@ -39,7 +49,6 @@ class TwoDartOutGameScreen extends React.Component {
                 <View style={styles.container}>
                     <ImageBackground style={[styles.image]} source={require("../../assets/bg_board.png")}>
                         <Image style={styles.logo} source ={require('../../assets/logo_sm.png')}/>
-                        <Icon name="home" style={{fontSize: 20}}/>
                         <UpdateCheckoutNumber/>
                         <CurrentCheckout/>
                         <TurnsLeft/>
@@ -70,6 +79,7 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#000000'
 
         //#dddfd4
     },
@@ -88,5 +98,5 @@ const styles = StyleSheet.create({
     }
 });
 
-export default TwoDartOutGameScreen;
+export default withNavigation(TwoDartOutGameScreen);
 

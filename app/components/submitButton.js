@@ -45,13 +45,25 @@ class SubmitButton extends React.Component {
         }
     };
 
+    playSound = () => {
+        try {
+            const { soundObject, status } =  Expo.Audio.Sound.create(
+                require('../assets/sounds/Submit.mp3'),
+                { shouldPlay: true }
+            );
+            // Your sound is playing!
+        } catch (error) {
+            // An error occurred!
+        }
+    };
+
 
 
     render(){
         return(
 
 
-        <TouchableOpacity onPress = {() => this.onSelect()}>
+        <TouchableOpacity onPress = {() => {this.onSelect(); this.playSound();}}>
             <View style={styles.test}>
                 <ImageBackground style={styles.submitImage} source={require('../assets/btn_submit.png')}/>
             </View>

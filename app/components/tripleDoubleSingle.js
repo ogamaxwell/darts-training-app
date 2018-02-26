@@ -45,33 +45,16 @@ class TripleDoubleSingle extends React.Component{
         })
     };
 
-
-
     playSound = () => {
-
-        const Sound = require('react-native-sound');
-
-        Sound.setCategory('Playback');
-
-        let btnPressed = new Sound('app/assets/sounds/BtnPress.mp3', Sound.MAIN_BUNDLE, (error) => {
-            if (error) {
-                console.log('failed to load the sound: ', error);
-                return;
-            }
-
-            console.log('duration in second: ' + btnPressed.getDuration() + 'number of channels: ' + btnPressed.getNumberOfChannels)
-        });
-
-        btnPressed.play((success) => {
-            if (success) {
-                console.log('successfully finished playing');
-            } else {
-                console.log('playback failed due to audio decoding errors');
-                // reset the player to its uninitialized state (android only)
-                // this is the only option to recover after an error occured and use the player again
-                btnPressed.reset();
-            }
-        });
+        try {
+            const { soundObject, status } =  Expo.Audio.Sound.create(
+                require('../assets/sounds/BtnPress.mp3'),
+                { shouldPlay: true }
+            );
+            // Your sound is playing!
+        } catch (error) {
+            // An error occurred!
+        }
     };
 
 
@@ -84,6 +67,7 @@ class TripleDoubleSingle extends React.Component{
                 <TouchableOpacity disabled={this.state.disabledT} onPress = {() => {
                     this.onSelect(3,"T");
                     this.changeBackgroundImageT();
+                    this.playSound();
                 }}>
                     <ImageBackground  style={styles.image} reizeMode='contain' source={this.state.uriT} >
                         <View style={styles.textView}>
@@ -93,7 +77,9 @@ class TripleDoubleSingle extends React.Component{
                 </TouchableOpacity>
                 <TouchableOpacity disabled={this.state.disabledD} onPress = {() => {
                     this.onSelect(2,'D');
-                    this.changeBackgroundImageD();}}>
+                    this.changeBackgroundImageD();
+                    this.playSound();
+                }}>
                     <ImageBackground style = {styles.image} reizeMode='contain' source={this.state.uriD} >
                         <View style={styles.textView}>
                             <Text style={styles.textStyle}>Double</Text>
@@ -102,7 +88,9 @@ class TripleDoubleSingle extends React.Component{
                 </TouchableOpacity>
                 <TouchableOpacity disabled={this.state.disabledS} onPress = {() =>{
                     this.onSelect(1,"S");
-                    this.changeBackgroundImageS();}}>
+                    this.changeBackgroundImageS();
+                    this.playSound();
+                }}>
                     <ImageBackground style = {styles.image} reizeMode='contain' source={this.state.uriS}>
                         <View style={styles.textView}>
                             <Text style={styles.textStyle}>Single</Text>
@@ -139,7 +127,7 @@ const styles = StyleSheet.create({
     image:{
         flexGrow:1,
         width: 132,
-        height:40,
+        height:45,
         alignItems: 'center',
         justifyContent: 'center',
     }

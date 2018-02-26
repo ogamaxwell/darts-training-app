@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         color: 'white',
         fontWeight: 'bold',
         margin: 0,
-        padding: 0,
+        paddingTop: 0,
     },
     container:{
 

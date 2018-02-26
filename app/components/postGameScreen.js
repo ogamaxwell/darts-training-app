@@ -3,19 +3,34 @@
  */
 
 import React from 'react';
-import {View, Text, Button, StyleSheet, ImageBackground, Image} from 'react-native';
+import {View, Text, Button, StyleSheet, ImageBackground, Image, TouchableOpacity} from 'react-native';
 import PlayAgainButton from '../containers/postGameContainers/playAgainButton';
 import PostCheckoutNumber from '../containers/postGameContainers/postCheckoutNumber';
 import SelectionsMade from '../containers/selectionsMade';
 import CheckoutData from '../containers/postGameContainers/checkoutData';
 import CheckoutMessage from '../containers/postGameContainers/checkoutMessage';
 
+import {Ionicons} from '@expo/vector-icons';
+
 
 class PostGameScreen extends React.Component {
 
-    static  navigationOptions = {
-        title: 'Post Game',
-        header: null,
+    static  navigationOptions = ({navigation}) => {
+        return {
+            headerStyle: {
+                backgroundColor: '#000000'
+            },
+            headerTintColor: 'white',
+            headerRight: (
+
+                <TouchableOpacity onPress={() => {
+                    navigation.navigate('PreGame');
+                }}>
+                    <Ionicons style={{paddingRight: 10}} name="md-menu" color="white" size={32}/>
+                </TouchableOpacity>
+            ),
+            headerLeft: null
+        }
     };
 
     render(){
