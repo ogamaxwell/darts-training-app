@@ -29,11 +29,9 @@ class CurrentCheckout extends React.Component {
 
 const styles = StyleSheet.create({
     text: {
-        fontSize: 150,
+        fontSize: 100,
         color: 'white',
         fontWeight: 'bold',
-        margin: 0,
-        paddingTop: 0,
     },
     container:{
 

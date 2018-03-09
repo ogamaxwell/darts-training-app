@@ -91,9 +91,6 @@ export default class NumberSelection extends React.Component {
 
     render(){
         return(
-                /*
-                * single row
-                * */
             <View>
                 <View style={styles.flexRow}>
                     {this.index1.map(i => {
@@ -173,7 +170,7 @@ const styles = StyleSheet.create({
     },
     imageBox:{
         width: 65,
-        height: 65,
+        height: 60,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -186,7 +183,7 @@ const styles = StyleSheet.create({
     test:{
         justifyContent: 'center',
         alignItems: 'center',
-    }
+    },
 });
 
 

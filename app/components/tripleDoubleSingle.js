@@ -106,8 +106,8 @@ const styles = StyleSheet.create({
     flexbox:{
         flexDirection: 'row',
         justifyContent: 'center',
-        paddingBottom: 10,
-        paddingTop: 10,
+        paddingBottom: 5,
+        paddingTop: 5,
     },
     textView: {
         backgroundColor: 'transparent',
@@ -119,13 +119,10 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
         color: 'white',
         justifyContent: 'center',
-        flex:1,
         fontSize: 20,
         fontWeight: 'bold',
-
     },
     image:{
-        flexGrow:1,
         width: 132,
         height:45,
         alignItems: 'center',

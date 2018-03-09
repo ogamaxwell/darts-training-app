@@ -4,7 +4,7 @@
 
 import React from 'react';
 import {Text, View, ImageBackground, TouchableOpacity, StyleSheet} from 'react-native';
-import {withNavigation} from 'react-navigation';
+import {withNavigation, NavigationActions} from 'react-navigation';
 
 
 

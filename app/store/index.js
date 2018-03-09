@@ -8,6 +8,6 @@ import thunkMiddleware from 'redux-thunk';
 import logger from 'redux-logger';
 
 
-const store = createStore(reducers, applyMiddleware(thunkMiddleware, logger));
+const store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
 export default store;

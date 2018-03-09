@@ -33,16 +33,6 @@ class SubmitButton extends React.Component {
         let data1 = store.getState();
         let turns1 = data1.updateTurns;
         let currentCheckout1 = data1.updateCurrentCheckout;
-
-        if(currentCheckout1 !== 0 && turns1 === 0){
-            navigate("BustScreen");
-        }
-        else if(turns1 === 0){
-            navigate('PostGame');
-        }
-        else if(currentCheckout1 < 1){
-            navigate("PostGame");
-        }
     };
 
     playSound = () => {
@@ -75,7 +65,7 @@ class SubmitButton extends React.Component {
 const styles = StyleSheet.create({
     submitImage: {
         width: 195,
-        height: 65,
+        height: 60,
         justifyContent: 'center',
         alignItems: 'center',
     },

@@ -7,7 +7,6 @@ import {StyleSheet, Text, View, ImageBackground, Image, Button, TouchableOpacity
 import {StackNavigator, withNavigation} from "react-navigation";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-
 import UpdateCheckoutNumber from '../../containers/twoDartOut/checkoutNumber';
 
 import CurrentCheckout from '../../containers/currentCheckout';
@@ -18,17 +17,19 @@ import {Container, Content, Icon} from 'native-base';
 
 import {Ionicons} from '@expo/vector-icons';
 
+import DartsBoard from '../../containers/twoDartOut/dartsBoard';
+
+
 
 class TwoDartOutGameScreen extends React.Component {
 
     static  navigationOptions = ({navigation}) => {
         return {
             headerStyle: {
-                backgroundColor: '#000000'
+                backgroundColor: '#000000',
             },
             headerTintColor: 'white',
             headerRight: (
-
                 <TouchableOpacity onPress={() => {
                     navigation.navigate('PreGame');
                 }}>
@@ -45,18 +46,11 @@ class TwoDartOutGameScreen extends React.Component {
 
         return (
             <View style={styles.container}>
-
-                <View style={styles.container}>
-                    <ImageBackground style={[styles.image]} source={require("../../assets/bg_board.png")}>
-                        <Image style={styles.logo} source ={require('../../assets/logo_sm.png')}/>
-                        <UpdateCheckoutNumber/>
-                        <CurrentCheckout/>
-                        <TurnsLeft/>
-                    </ImageBackground>
-                </View>
+                <DartsBoard/>
+                <View style={styles.dartBoard}>
                     <TripleDoubleSingle/>
                     <NumberSelection/>
-
+                </View>
             </View>
         );
     }
@@ -71,23 +65,21 @@ const styles = StyleSheet.create({
         backgroundColor: '#000000'
     },
     dartBoard:{
-      flex: 1,
-    },
-
-    container:{
-
         flex:1,
+
+    },
+    container:{
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#000000'
-
-        //#dddfd4
+        backgroundColor: '#000000',
+        flex:1,
     },
     image: {
-        width: 350,
-        height: 350,
+        width: '75%',
+        height: null,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'flex-start',
+        flex:1,
     },
     logo:{
         height: 75,

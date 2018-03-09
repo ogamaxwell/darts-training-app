@@ -11,16 +11,17 @@ import PreGameScreen from './app/components/preGameScreen';
 import TwoDartOutGameScreen from './app/components/twoDartOut/twoDartOutGame';
 import ThreeDartOutGameScreen from './app/components/threeDartOut/threeDartOutGame';
 import BustScreen from './app/components/bustScreen/bustScreen';
+import SignUp from './app/components/signUp';
 
 
 export const StackApp = StackNavigator({
     PreGame: {screen: PreGameScreen},
+    SignUp: {screen: SignUp},
     twoDart: {screen: TwoDartOutGameScreen},
     PostGame: {screen: PostGameScreen},
     BustScreen: {screen: BustScreen},
     threeDart: {screen: ThreeDartOutGameScreen},
     Game: {screen: GameScreen},
-
 });
 
 

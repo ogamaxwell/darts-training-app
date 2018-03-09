@@ -15,6 +15,7 @@ import {ADD_CHECKOUT_NUMBER,
         CLEAN_STATE_CHECKOUT,
         FETCH_SELECTION_DATA,
         GAME_MODE,
+        BUST,
         } from './actionTypes';
 
 
@@ -146,6 +147,7 @@ export const cleanState = () => {
       selectionsMade: [],
       multiplier: [],
       selection: [],
+      turnsLeft: [],
   }
 };
 
@@ -161,6 +163,13 @@ export const gameMode = (props) => {
         type: GAME_MODE,
         gameMode: props,
 
+    }
+};
+
+export const bust = (props) => {
+    return {
+        type: BUST,
+        bust: props,
     }
 };
 

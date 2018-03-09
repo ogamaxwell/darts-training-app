@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import {StyleSheet, Text, View, ImageBackground, Image} from 'react-native';
+import {StyleSheet, Text, View, ImageBackground, Image, TouchableOpacity} from 'react-native';
 import {StackNavigator} from "react-navigation";
 
 
@@ -18,28 +18,41 @@ import TripleDoubleSingle from '../../containers/tripleDoubleSingle';
 import NumberSelection from '../../containers/numberSelection';
 import TurnsLeft from '../../containers/turnsLeft';
 
+import {Ionicons} from '@expo/vector-icons';
+
 
 class ThreeDartOutGameScreen extends React.Component {
 
 
-    static  navigationOptions = {
-        title: 'Three Dart Game',
-        header: null,
+    static  navigationOptions = ({navigation}) => {
+        return {
+            headerStyle: {
+                backgroundColor: '#000000',
+            },
+            headerTintColor: 'white',
+            headerRight: (
+                <TouchableOpacity onPress={() => {
+                    navigation.navigate('PreGame');
+                }}>
+                    <Ionicons style={{paddingRight: 10}} name="md-menu" color="white" size={32}/>
+                </TouchableOpacity>
+            )
+        }
     };
 
     render(){
         return (
             <View style={styles.container}>
-                <View style={styles.container}>
-                    <ImageBackground style={[styles.image]} source={require("../../assets/bg_board.png")}>
-                        <Image style={styles.logo} source ={require('../../assets/logo_sm.png')}/>
-                        <UpdateCheckoutNumber/>
-                        <CurrentCheckout/>
-                        <TurnsLeft/>
-                    </ImageBackground>
+                <ImageBackground style={[styles.image]} source={require("../../assets/bg_board.png")}>
+                    <Image style={styles.logo} source ={require('../../assets/logo_sm.png')}/>
+                    <UpdateCheckoutNumber/>
+                    <CurrentCheckout/>
+                    <TurnsLeft/>
+                </ImageBackground>
+                <View style={styles.withImage}>
+                    <TripleDoubleSingle/>
+                    <NumberSelection/>
                 </View>
-                <TripleDoubleSingle/>
-                <NumberSelection/>
             </View>
         );
     }
@@ -53,10 +66,11 @@ const styles = StyleSheet.create({
         //#dddfd4
     },
     image: {
-        width: 300,
-        height: 300,
+        width: '75%',
+        height: null,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'flex-start',
+        flex:1,
     },
     withImage: {
         flex: 1,

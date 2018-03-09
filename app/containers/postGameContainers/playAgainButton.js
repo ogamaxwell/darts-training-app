@@ -4,7 +4,7 @@
 
 
 import { connect } from 'react-redux';
-import { cleanState, cleanStateCheckout } from '../../actions/index';
+import { cleanState, cleanStateCheckout, bust } from '../../actions/index';
 import PlayAgainButton from '../../components/postGameComponents/playAgainButton';
 
 const mapStateToProps = state => {
@@ -19,6 +19,7 @@ const mapDispatchToProps = (dispatch) => {
         cleanState: () => {
             dispatch(cleanState());
             dispatch(cleanStateCheckout());
+            dispatch(bust(false));
         }
     }
 };
