@@ -43,7 +43,6 @@ class TwoDartOutGameScreen extends React.Component {
 
 
     render(){
-
         return (
             <View style={styles.container}>
                 <DartsBoard/>

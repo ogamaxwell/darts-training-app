@@ -2,10 +2,6 @@
  * Created by Max on 2/20/2018.
  */
 
-/**
- * Created by Max on 2/17/2018.
- */
-
 import React from 'react';
 import {StyleSheet, Text, View, ImageBackground, Image, TouchableOpacity} from 'react-native';
 import {StackNavigator} from "react-navigation";
@@ -17,6 +13,7 @@ import CurrentCheckout from '../../containers/currentCheckout';
 import TripleDoubleSingle from '../../containers/tripleDoubleSingle';
 import NumberSelection from '../../containers/numberSelection';
 import TurnsLeft from '../../containers/turnsLeft';
+import DartsBoard from '../../containers/threeDartOut/dartsBoard';
 
 import {Ionicons} from '@expo/vector-icons';
 
@@ -43,12 +40,7 @@ class ThreeDartOutGameScreen extends React.Component {
     render(){
         return (
             <View style={styles.container}>
-                <ImageBackground style={[styles.image]} source={require("../../assets/bg_board.png")}>
-                    <Image style={styles.logo} source ={require('../../assets/logo_sm.png')}/>
-                    <UpdateCheckoutNumber/>
-                    <CurrentCheckout/>
-                    <TurnsLeft/>
-                </ImageBackground>
+                <DartsBoard/>
                 <View style={styles.withImage}>
                     <TripleDoubleSingle/>
                     <NumberSelection/>

@@ -22,7 +22,6 @@ class PostGameScreen extends React.Component {
             },
             headerTintColor: 'white',
             headerRight: (
-
                 <TouchableOpacity onPress={() => {
                     navigation.navigate('PreGame');
                 }}>
@@ -36,18 +35,14 @@ class PostGameScreen extends React.Component {
     render(){
         return (
             <View style={styles.holder}>
-                <View style={styles.dartBoard}>
-                    <ImageBackground style={[styles.image]} source={require("../assets/bg_board.png")}>
-                        <Image style={styles.logo} source ={require('../assets/logo_sm.png')}/>
-                        <View style={styles.numHolder}>
-                            <CheckoutMessage/>
-                            <PostCheckoutNumber/>
-                            <SelectionsMade/>
-                            <PlayAgainButton/>
-                        </View>
-                    </ImageBackground>
-                </View>
-                <View style={styles.container2}>
+                <ImageBackground style={styles.image} source={require("../assets/bg_board.png")}>
+                    <Image style={styles.logo} source ={require('../assets/logo_sm.png')}/>
+                    <CheckoutMessage/>
+                    <PostCheckoutNumber/>
+                    <SelectionsMade/>
+                    <PlayAgainButton/>
+                </ImageBackground>
+                <View style={styles.checkoutData}>
                     <CheckoutData/>
                 </View>
             </View>
@@ -63,28 +58,24 @@ const styles = StyleSheet.create({
     },
     holder: {
         flex:1,
-        alignItems: 'stretch',
-        justifyContent: 'center',
-        //backgroundColor: '#000000',
-    },
-
-    dartBoard: {
-        flexGrow: .25,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#000000',
     },
-    image: {
 
-        width: 350,
-        height: 350,
+    image: {
+        width: '80%',
+        height: null,
         justifyContent:"center",
         alignItems:'center',
+        flex:1,
+        backgroundColor: '#000000'
     },
-    container2:{
+    checkoutData:{
         backgroundColor:'#262525',
         justifyContent: 'center',
         alignItems: 'center',
+        alignSelf: 'stretch',
         flex: 1,
     },
     logo:{

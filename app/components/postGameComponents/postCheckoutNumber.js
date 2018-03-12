@@ -18,7 +18,7 @@ export default PostCheckoutNumber;
 
 const styles = StyleSheet.create({
     textCheckout: {
-        fontSize: 125,
+        fontSize: 100,
         color: 'white',
         fontWeight: 'bold',
     }
