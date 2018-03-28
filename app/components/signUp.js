@@ -15,11 +15,6 @@ class SignUp extends React.Component {
 
     static navigationOptions = {
         headerTitle: 'Login',
-        headerRight: (
-            <Text title='Sign Up' onPress={() => {
-                this.onRegister();
-            }}>Sign Up</Text>
-        )
     };
 
      constructor(props){
@@ -32,15 +27,6 @@ class SignUp extends React.Component {
      }
 
     componentWillMount() {
-        let config = {
-            apiKey: "AIzaSyA8nhQb3st_84vNM2X5yM1UX3af8QEd7pc",
-            authDomain: "dartsapp-777bd.firebaseapp.com",
-            databaseURL: "https://dartsapp-777bd.firebaseio.com",
-            projectId: "dartsapp-777bd",
-            storageBucket: "dartsapp-777bd.appspot.com",
-            messagingSenderId: "759732626897"
-        };
-        firebase.initializeApp(config);
 
         this.authSubscription = firebase.auth().onAuthStateChanged((user) => {
             this.setState({
@@ -67,6 +53,7 @@ class SignUp extends React.Component {
             })
             .then(() => {
                 const {navigate} = this.props.navigation;
+                Alert.alert("You are now signed in!");
                 navigate('PreGame');
             })
             .catch((error) => {
@@ -88,6 +75,7 @@ class SignUp extends React.Component {
             })
             .then(() => {
                 const {navigate} = this.props.navigation;
+                Alert.alert("Thank you for Joining!");
                 navigate('PreGame');
             })
             .catch((error) => {
@@ -95,7 +83,7 @@ class SignUp extends React.Component {
                 // For details of error codes, see the docs
                 // The message contains the default Firebase string
                 // representation of the error
-                console.log(message,code);
+                Alert.alert(code,message);
             });
     };
 
@@ -120,6 +108,9 @@ class SignUp extends React.Component {
                 <Button onPress={ () => {
                     this.onLogin();
                 }}>Login</Button>
+                <Button onPress={ () => {
+                    this.onRegister();
+                }}>Register</Button>
                 <Text>Reset Password</Text>
             </View>
         )

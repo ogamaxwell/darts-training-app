@@ -32,8 +32,6 @@ class DartsBoard extends React.Component {
     }
 
     componentWillReceiveProps(nextProps, nextState){
-        console.log('Next Props: ', nextProps);
-        console.log('Next State: ', nextState);
         //this.props.currentCheckout < 0 && this.props.turnsLeft > 1 this condition will render to early
         if(nextProps.currentCheckout === 0 && nextProps.turnsLeft === 0){
             const {navigate} = this.props.navigation;
@@ -52,7 +50,6 @@ class DartsBoard extends React.Component {
     };
 
     shouldComponentUpdate(nextProps, nextState) {
-        console.log(nextState, nextProps);
         //this.props.currentCheckout < 1 && this.props.turnsLeft > 0 || nextProps.bust === true
         if (nextProps.bustState === true) {
             return true;
@@ -115,14 +112,14 @@ const styles = StyleSheet.create({
     },
     image: {
         width: '75%',
-        height: null,
+        height: '70%',
         alignItems: 'center',
         justifyContent: 'flex-start',
         flex:1,
     },
     logo:{
-        height: 75,
-        width: 150,
+        height: '30%',
+        width: '30%',
         resizeMode: 'contain',
         alignItems: 'center',
         justifyContent: 'center',

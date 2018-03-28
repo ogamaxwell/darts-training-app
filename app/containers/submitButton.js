@@ -2,7 +2,7 @@
  * Created by Max on 2/3/2018.
  */
 
-import { submitButtonPressed, updateTurns, updateSelectionsMade } from '../actions';
+import { submitButtonPressed, updateTurns, updateSelectionsMade, toggleClean } from '../actions';
 import { connect } from 'react-redux';
 import submitButton from '../components/submitButton';
 
@@ -19,6 +19,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(submitButtonPressed(multiplier, selection, currentCheckout));
             dispatch(updateTurns(turns));
             dispatch(updateSelectionsMade(label, selection));
+            dispatch(toggleClean());
         }
     }
 };

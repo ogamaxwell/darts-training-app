@@ -23,6 +23,16 @@ class TripleDoubleSingle extends React.Component{
 
     };
 
+    toggleSingle () {
+        this.props.toggleSingle();
+    };
+    toggleDouble () {
+        this.props.toggleDouble();
+    };
+    toggleTriple () {
+        this.props.toggleTriple();
+    };
+
     changeBackgroundImageT = () => {
         this.setState({
             uriT: require("../assets/btn_segment_on.png"),
@@ -44,6 +54,16 @@ class TripleDoubleSingle extends React.Component{
             uriD: require("../assets/btn_segment_off.png"),
         })
     };
+    reset = () => {
+        if(this.props.single === false && this.props.double===false && this.props.triple === false){
+            this.setState({
+                uriS: require("../assets/btn_segment_off.png"),
+                uriT: require("../assets/btn_segment_off.png"),
+                uriD: require("../assets/btn_segment_off.png"),
+            })
+        }
+
+    };
 
     playSound = () => {
         try {
@@ -57,6 +77,25 @@ class TripleDoubleSingle extends React.Component{
         }
     };
 
+    componentWillReceiveProps(nextProps){
+        if(nextProps.single === false && nextProps.double===false && nextProps.triple === false){
+            this.setState({
+                uriS: require("../assets/btn_segment_off.png"),
+                uriT: require("../assets/btn_segment_off.png"),
+                uriD: require("../assets/btn_segment_off.png"),
+            })
+        }
+    }
+
+    shouldComponentUpdate(nextProps){
+        if(true){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 
 
     render(){
@@ -68,6 +107,7 @@ class TripleDoubleSingle extends React.Component{
                     this.onSelect(3,"T");
                     this.changeBackgroundImageT();
                     this.playSound();
+                    this.toggleTriple();
                 }}>
                     <ImageBackground  style={styles.image} reizeMode='contain' source={this.state.uriT} >
                         <View style={styles.textView}>
@@ -79,6 +119,7 @@ class TripleDoubleSingle extends React.Component{
                     this.onSelect(2,'D');
                     this.changeBackgroundImageD();
                     this.playSound();
+                    this.toggleDouble();
                 }}>
                     <ImageBackground style = {styles.image} reizeMode='contain' source={this.state.uriD} >
                         <View style={styles.textView}>
@@ -90,6 +131,7 @@ class TripleDoubleSingle extends React.Component{
                     this.onSelect(1,"S");
                     this.changeBackgroundImageS();
                     this.playSound();
+                    this.toggleSingle();
                 }}>
                     <ImageBackground style = {styles.image} reizeMode='contain' source={this.state.uriS}>
                         <View style={styles.textView}>

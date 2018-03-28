@@ -33,7 +33,8 @@ class ThreeDartOutGameScreen extends React.Component {
                 }}>
                     <Ionicons style={{paddingRight: 10}} name="md-menu" color="white" size={32}/>
                 </TouchableOpacity>
-            )
+            ),
+            headerLeft: null,
         }
     };
 

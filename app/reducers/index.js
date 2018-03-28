@@ -14,6 +14,7 @@ import updateTurns from './updateTurns';
 import bestCombo from './getBestCombo';
 import currentGameMode from './currentGameMode';
 import bust from './bust';
+import updateBar from './updateBar';
 
 
 export default combineReducers({
@@ -27,4 +28,5 @@ export default combineReducers({
     bestCombo,
     currentGameMode,
     bust,
+    updateBar,
 });

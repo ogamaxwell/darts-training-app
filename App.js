@@ -13,6 +13,9 @@ import ThreeDartOutGameScreen from './app/components/threeDartOut/threeDartOutGa
 import BustScreen from './app/components/bustScreen/bustScreen';
 import SignUp from './app/components/signUp';
 
+import * as firebase from 'firebase';
+
+
 
 export const StackApp = StackNavigator({
     PreGame: {screen: PreGameScreen},
@@ -28,7 +31,18 @@ export const StackApp = StackNavigator({
 //calls the app into the view
 //this is what makes the view load.
 export default class App extends React.Component {
+
+
   render() {
+      let config = {
+          apiKey: "AIzaSyA8nhQb3st_84vNM2X5yM1UX3af8QEd7pc",
+          authDomain: "dartsapp-777bd.firebaseapp.com",
+          databaseURL: "https://dartsapp-777bd.firebaseio.com",
+          projectId: "dartsapp-777bd",
+          storageBucket: "dartsapp-777bd.appspot.com",
+          messagingSenderId: "759732626897"
+      };
+      firebase.initializeApp(config);
     return(
         <Provider store={store}>
             <StackApp/>

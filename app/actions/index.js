@@ -16,6 +16,11 @@ import {ADD_CHECKOUT_NUMBER,
         FETCH_SELECTION_DATA,
         GAME_MODE,
         BUST,
+        TOGGLE_TRIPLE,
+        TOGGLE_DOUBLE,
+        TOGGLE_SINGLE,
+        TOGGLE_CLEAN,
+        POST_USER_CHECKOUT_DATA,
         } from './actionTypes';
 
 
@@ -173,7 +178,60 @@ export const bust = (props) => {
     }
 };
 
+export const toggleSingle = () => {
+  return {
+      type: TOGGLE_SINGLE,
+      singleSelected: [false, false, true]
+  }
+};
 
+export const toggleDouble = () => {
+    return {
+        type: TOGGLE_DOUBLE,
+        doubleSelected: [false,true,false]
+    }
+};
+
+export const toggleTriple = () => {
+    return {
+        type: TOGGLE_TRIPLE,
+        tripleSelected: [true,false,false]
+    }
+};
+export const toggleClean = () => {
+    return{
+        type: TOGGLE_CLEAN,
+        barData: [false,false,false]
+    }
+};
+
+export const sendCheckoutData = (outNum, outCombo) => {
+  return(dispatch) => {
+      let num = outNum;
+      let combo = outCombo;
+      fetch('https://fathomless-eyrie-63078.herokuapp.com/community', {
+          method: 'POST',
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+              outNum: num,
+              outCombo: combo,
+          })
+      })
+  }
+};
+
+export const postUserData = (userEmail, outNum, outCombo) => {
+    return(dispatch) => {
+        let user = userEmail;
+        let num = outNum;
+        let combo = outCombo;
+
+        fetch
+    }
+};
 
 
 

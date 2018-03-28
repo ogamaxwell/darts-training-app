@@ -10,6 +10,9 @@ import SelectionsMade from '../containers/selectionsMade';
 import CheckoutData from '../containers/postGameContainers/checkoutData';
 import CheckoutMessage from '../containers/postGameContainers/checkoutMessage';
 
+import Store from '../store';
+
+import { sendCheckoutData } from '../actions';
 import {Ionicons} from '@expo/vector-icons';
 
 
@@ -33,6 +36,10 @@ class PostGameScreen extends React.Component {
     };
 
     render(){
+        let store = Store.getState();
+        let checkout = store.getCheckoutNumber;
+        let outCombo = store.updateSelectionsMade;
+        Store.dispatch(sendCheckoutData(checkout,outCombo));
         return (
             <View style={styles.holder}>
                 <ImageBackground style={styles.image} source={require("../assets/bg_board.png")}>
@@ -66,7 +73,7 @@ const styles = StyleSheet.create({
     image: {
         width: '80%',
         height: null,
-        justifyContent:"center",
+        justifyContent:"flex-start",
         alignItems:'center',
         flex:1,
         backgroundColor: '#000000'
@@ -76,11 +83,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'stretch',
-        flex: 1,
+        flex: .8,
     },
     logo:{
-        height: 75,
-        width: 150,
+        height: '30%',
+        width: '30%',
         resizeMode: 'contain',
         alignItems: 'center',
         justifyContent: 'center',

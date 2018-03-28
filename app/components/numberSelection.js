@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     },
     imageBox:{
         width: 65,
-        height: 60,
+        height: 62,
         justifyContent: 'center',
         alignItems: 'center',
     },

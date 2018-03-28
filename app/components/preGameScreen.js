@@ -8,18 +8,47 @@ import {StackNavigator, withNavigation} from "react-navigation";
 import store from '../store';
 import {cleanState} from '../actions';
 
+import * as firebase from 'firebase';
 
 
 class PreGameScreen extends React.Component {
+
+    constructor() {
+        super();
+        this.state = {
+            loading: true,
+        };
+    }
 
     static navigationOptions = {
         title: 'Pre Game',
         header: null,
     };
 
-    login = () => {
+    /**
+     * When the App component mounts, we listen for any authentication
+     * state changes in Firebase.
+     * Once subscribed, the 'user' parameter will either be null
+     * (logged out) or an Object (logged in)
+     */
+    componentDidMount() {
+        this.authSubscription = firebase.auth().onAuthStateChanged((user) => {
+            this.setState({
+                loading: false,
+                user,
+            });
+            console.log("user " + user.email + " is logged in!");
+        });
+    }
 
-    };
+    /**
+     * Don't forget to stop listening for authentication state changes
+     * when the component unmounts.
+     */
+    componentWillUnmount() {
+        this.authSubscription();
+    }
+
 
     render() {
         const { navigate } = this.props.navigation;
